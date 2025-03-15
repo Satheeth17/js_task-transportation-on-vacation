@@ -4,17 +4,19 @@
  * @return {number}
  */
 function calculateRentalCost(days) {
-  let sum = 0;
+  const DAILY_RATE = 40;
+  const DISCOUNT_SMALL = 20;
+  const DISCOUNT_LARGE = 50;
 
   if (days < 3) {
-    sum = 40 * days;
-  } else if (days < 7) {
-    sum = 40 * days - 20;
-  } else {
-    sum = 40 * days - 50;
+    return DAILY_RATE * days;
   }
 
-  return sum;
+  if (days < 7) {
+    return DAILY_RATE * days - DISCOUNT_SMALL;
+  }
+
+  return DAILY_RATE * days - DISCOUNT_LARGE;
 }
 
 module.exports = calculateRentalCost;
